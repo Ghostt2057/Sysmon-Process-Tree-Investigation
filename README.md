@@ -31,7 +31,7 @@ Sysmon provides enhanced visibility into process execution activity and records 
 
 This telemetry is commonly used during threat hunting and incident response investigations.
 
-![Sysmon Operational Log](Screenshots/01_Sysmon_Operational_Log.png)
+![Sysmon Operational Log](Screenshots-Sysmon2/Capture1.PNG)
 
 ---
 
