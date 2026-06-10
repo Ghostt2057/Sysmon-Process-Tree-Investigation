@@ -70,3 +70,152 @@ Event ID 1 represents Process Creation events and records detailed information e
 This event type is one of the most valuable telemetry sources used by SOC analysts during investigations.
 
 ![Event ID 1 Filter](Screenshots-Sysmon2/Capture5.PNG)
+
+
+## 4. Command Prompt Investigation
+
+The first process analyzed was cmd.exe.
+
+### Process Information
+
+**Image**
+
+```text
+C:\Windows\System32\cmd.exe
+```
+
+**ParentImage**
+
+```text
+C:\Windows\explorer.exe
+```
+
+**CommandLine**
+
+```text
+"C:\windows\system32\cmd.exe"
+```
+
+**User**
+
+```text
+LAPTOP-FNFFBP7U\Hp
+```
+
+### Analysis
+
+The investigation showed that Command Prompt was launched directly from explorer.exe.
+
+Explorer.exe is the Windows graphical shell and commonly serves as the parent process when applications are manually executed by a user.
+
+This behavior was consistent with normal user activity and did not indicate suspicious execution.
+
+![CMD Event](Screenshots-Sysmon2/Capture6.PNG)
+
+---
+
+## 5. PowerShell Investigation
+
+The second process analyzed was powershell.exe.
+
+### Process Information
+
+**Image**
+
+```text
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+```
+
+**ParentImage**
+
+```text
+C:\Windows\System32\cmd.exe
+```
+
+**CommandLine**
+
+```text
+powershell.exe
+```
+
+**User**
+
+```text
+LAPTOP-FNFFBP7U\Hp
+```
+
+### Analysis
+
+The investigation revealed that PowerShell was launched from Command Prompt.
+
+The command line contained only the executable name and no additional arguments, encoded commands, or scripts.
+
+No suspicious behavior was identified during the execution.
+
+![PowerShell Event](Screenshots-Sysmon2/Capture7.PNG)
+
+---
+
+## 6. Notepad Investigation
+
+The final process analyzed was notepad.exe.
+
+### Process Information
+
+**Image**
+
+```text
+C:\Windows\System32\notepad.exe
+```
+
+**ParentImage**
+
+```text
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+```
+
+**CommandLine**
+
+```text
+"C:\windows\system32\notepad.exe"
+```
+
+**User**
+
+```text
+LAPTOP-FNFFBP7U\Hp
+```
+
+### Analysis
+
+Sysmon recorded Notepad being launched from PowerShell.
+
+The event completed the execution chain and demonstrated how Sysmon can track process lineage across multiple generations of processes.
+
+The observed activity was consistent with legitimate user behavior.
+
+![Notepad Event](Screenshots-Sysmon2/Capture8.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
