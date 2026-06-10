@@ -69,4 +69,4 @@ Event ID 1 represents Process Creation events and records detailed information e
 
 This event type is one of the most valuable telemetry sources used by SOC analysts during investigations.
 
-![Event ID 1 Filter](Screenshots/05_EventID1_Filter.png)
+![Event ID 1 Filter](Screenshots-Sysmon2/Capture5.PNG)
