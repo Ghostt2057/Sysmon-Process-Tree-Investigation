@@ -49,15 +49,15 @@ This generated a clear parent-child process hierarchy that could later be recons
 
 ### Command Prompt Execution
 
-![CMD Opened](Screenshots/02_CMD_Opened.png)
+![CMD Opened](Screenshots-Sysmon2/Capture2.PNG)
 
 ### PowerShell Launched from CMD
 
-![PowerShell From CMD](Screenshots/03_PowerShell_From_CMD.png)
+![PowerShell From CMD](Screenshots-Sysmon2/Capture3.PNG)
 
 ### Complete Process Chain
 
-![Process Chain](Screenshots/04_Process_Chain.png)
+![Process Chain](Screenshots-Sysmon2/Capture4.PNG)
 
 ---
 
