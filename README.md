@@ -197,6 +197,45 @@ The observed activity was consistent with legitimate user behavior.
 ![Notepad Event](Screenshots-Sysmon2/Capture8.PNG)
 
 
+## 7. Process Tree Reconstruction
+
+Using the ParentImage and Image fields recorded by Sysmon, the complete process execution chain was reconstructed.
+
+The investigation identified explorer.exe as the initial parent process responsible for launching Command Prompt (cmd.exe). Command Prompt subsequently launched PowerShell (powershell.exe), which then spawned Notepad (notepad.exe).
+
+The reconstructed execution chain was:
+
+explorer.exe → cmd.exe → powershell.exe → notepad.exe
+
+This process hierarchy demonstrated how Sysmon records parent-child relationships and enables analysts to trace process execution across multiple generations of processes.
+
+Process tree reconstruction is a common technique used during threat hunting and incident response investigations to understand process behavior, identify suspicious execution chains, and determine how applications were launched within a system.
+
+## Conclusion
+
+This project demonstrated the investigation of Windows process creation events using Sysmon Event ID 1.
+
+By analyzing process telemetry and parent-child relationships, it was possible to reconstruct the complete execution chain of multiple applications and understand how Sysmon records process activity within a Windows environment.
+
+The investigation showed that Command Prompt was launched from explorer.exe, PowerShell was launched from Command Prompt, and Notepad was launched from PowerShell. The observed activity was consistent with normal user behavior and no suspicious command-line arguments or abnormal process relationships were identified.
+
+This project highlights the value of Sysmon as a powerful source of endpoint telemetry for monitoring, investigating, and understanding process execution activity during security investigations.
+
+
+## Lessons Learned
+
+Throughout this project, I gained practical experience in:
+
+* Investigating Sysmon Event ID 1 process creation events.
+* Analyzing parent-child process relationships.
+* Understanding how process execution chains are recorded in Windows.
+* Reviewing executable paths and command-line activity.
+* Reconstructing process execution timelines using Sysmon telemetry.
+* Using Event Viewer to perform security investigations.
+* Applying basic threat hunting techniques to analyze process behavior.
+* Collecting and documenting evidence in a structured SOC-style investigation.
+
+This exercise strengthened my understanding of endpoint monitoring, process analysis, and investigative methodologies commonly used by SOC analysts and incident responders.
 
 
 
